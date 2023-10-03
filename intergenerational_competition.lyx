@@ -1,0 +1,516 @@
+#LyX 2.3 created this file. For more info see http://www.lyx.org/
+\lyxformat 544
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass article
+\begin_preamble
+\usepackage{heuristica}
+\usepackage[heuristica,vvarbb,bigdelims]{newtxmath}
+\usepackage[T1]{fontenc}
+\renewcommand*\oldstylenums[1]{\textosf{#1}}
+\usepackage{color}
+\definecolor{slateblue}{RGB}{22,88,143}
+\usepackage{doi}
+
+\usepackage{datetime}
+\date{\today\ at \currenttime}
+\usepackage{tcolorbox}
+\end_preamble
+\use_default_options true
+\maintain_unincluded_children false
+\language english
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\use_microtype false
+\use_dash_ligatures true
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize 12
+\spacing single
+\use_hyperref true
+\pdf_bookmarks true
+\pdf_bookmarksnumbered false
+\pdf_bookmarksopen false
+\pdf_bookmarksopenlevel 1
+\pdf_breaklinks true
+\pdf_pdfborder true
+\pdf_colorlinks true
+\pdf_backref false
+\pdf_pdfusetitle true
+\pdf_quoted_options "citecolor=slateblue,linkcolor=slateblue,urlcolor=slateblue"
+\papersize default
+\use_geometry true
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine natbib
+\cite_engine_type authoryear
+\biblio_style plainnat
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\use_minted 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\leftmargin 2.5cm
+\topmargin 2.5cm
+\rightmargin 2.5cm
+\bottommargin 2.5cm
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style english
+\dynamic_quotes 0
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Title
+Intergenerational competition and the evolution of altruistic behaviour
+\end_layout
+
+\begin_layout Author
+Margaret Bolton, Rufus A.
+ Johnstone & Bram Kuijper
+\end_layout
+
+\begin_layout Section
+The model
+\end_layout
+
+\begin_layout Subsection
+Life cycle
+\end_layout
+
+\begin_layout Standard
+For the sake of tractability, we use an infinite-island model 
+\begin_inset CommandInset citation
+LatexCommand citet
+key "Wright1931"
+literal "false"
+
+\end_inset
+
+ to study a haploid, asexually reproducing population.
+ Each patch contains 
+\begin_inset Formula $n$
+\end_inset
+
+ adult breeders.
+ Individuals can either provide survival help 
+\begin_inset Formula $x$
+\end_inset
+
+ or fecundity help 
+\begin_inset Formula $y$
+\end_inset
+
+.
+ Consider then a focal mutant with trait 
+\begin_inset Formula $z_{\mathrm{foc}}$
+\end_inset
+
+ where 
+\begin_inset Formula $z\in(x,y)$
+\end_inset
+
+.
+ The average level of help from all individuals (including the focal mutant)
+ on the focal's patch is given by 
+\begin_inset Formula $z_{\mathrm{loc}}$
+\end_inset
+
+ while the population-wide average trait is given by 
+\begin_inset Formula $z$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+At the start of each time step, the average breeder in the patch produces
+ 
+\begin_inset Formula $f\left(y_{\mathrm{loc}},y_{\mathrm{loc}}\right)$
+\end_inset
+
+ offspring, so that the total number of offspring produced in the local
+ site per timestep is 
+\begin_inset Formula $nf\left(y_{\mathrm{loc}},y_{\mathrm{loc}}\right)$
+\end_inset
+
+.
+ These offspring disperse with probabilitity 
+\begin_inset Formula $d$
+\end_inset
+
+ to a randomly chosen site or remain with probability 
+\begin_inset Formula $h\equiv1-d$
+\end_inset
+
+ to compete for vacant breeding positions at the natal patch.
+ Similarly, a patch stands to receive on average 
+\begin_inset Formula $ndf(y,y)$
+\end_inset
+
+ immigrants from remote sites, so that a total of 
+\begin_inset Formula $nc(y_{\mathrm{loc}},y)=n(1-d)f\left(y_{\mathrm{loc}},y_{\mathrm{loc}}\right)+ndf(y,y)$
+\end_inset
+
+ competes for local breeding positions.
+\end_layout
+
+\begin_layout Standard
+Following reproduction, a focal adult breeder survives with probability
+ 
+\begin_inset Formula $s_{\mathrm{a}}(x_{\mathrm{foc}},y_{\mathrm{foc}},x_{\mathrm{loc}},y_{\mathrm{loc}})$
+\end_inset
+
+.
+ Note that survival is both a function of fecundity help so that an average
+ of 
+\begin_inset Formula $ns_{\mathrm{a}}\left(x_{\mathrm{loc}},y_{\mathrm{loc}}\right)$
+\end_inset
+
+ adults survive each time step, while 
+\begin_inset Formula $n\left(1-s_{\mathrm{a}}\left(x_{\mathrm{loc}}\right)\right)$
+\end_inset
+
+ breeding sites are now vacant.
+ All individuals in the local patch then compete for local breeding positions.
+ To accommodate various biological scenarios, we weigh the competitive strength
+ of juveniles relative to adults by a coefficient 
+\begin_inset Formula $k>0$
+\end_inset
+
+, in which values of 
+\begin_inset Formula $k<1$
+\end_inset
+
+ reflect that juveniles are less likely to achieve a vacant breeding position
+ relative to any adult, whereas 
+\begin_inset Formula $k>1$
+\end_inset
+
+ reflects a scenario in which juveniles are more likely than adults to achieve
+ a vacant breeding position.
+ Next, we consider that juveniles and adults can interact in two different
+ ways: in the first version of the model, the average number of 
+\begin_inset Formula $ns_{\mathrm{a}}\left(x_{\mathrm{loc}},y_{\mathrm{loc}}\right)$
+\end_inset
+
+ surviving adults and the 
+\begin_inset Formula $nc(y_{\mathrm{foc}},y_{\mathrm{loc}},y)$
+\end_inset
+
+ juveniles compete for each of the 
+\begin_inset Formula $n$
+\end_inset
+
+ breeding positions available, which we designate as `full scramble' (FS).
+ This would reflect lifestyles in which all individuals, juveniles and adults
+ alike, have to compete for any breeding positions anew each generation.
+ In the second version of the model, we consider that only juveniles can
+ remove adults from their breeding positions.
+ If an adult is usurped they are unable to compete with other adults for
+ their breeding positions.
+ We designate this version of the model as the `adult defence' (AD) model.
+ For example, this reflects lifestyles in which an adult that is successfully
+ challenged by a juvenile is immediately expelled from the group and cannot
+ compete for other vacancies.
+ [we can scrap this if the difference is not so interesting].
+\end_layout
+
+\begin_layout Standard
+Consequently, the probability 
+\begin_inset Formula $p_{\mathrm{keep}}$
+\end_inset
+
+ that any focal adult successfully manages to maintain its breeding position
+ is given by
+\begin_inset Formula 
+\begin{align*}
+p_{\mathrm{keep,FS}} & =\frac{s_{\mathrm{a}}\left(x_{\mathrm{foc}},y_{\mathrm{foc}}\right)}{ns_{\mathrm{a}}\left(x_{\mathrm{loc}},y_{\mathrm{loc}}\right)+knc(y_{\mathrm{loc}},y)}\\
+p_{\mathrm{keep,AD}} & =s_{\mathrm{a}}\left(x_{\mathrm{foc}},y_{\mathrm{foc}},x_{\mathrm{loc}},y_{\mathrm{loc}}\right)\frac{1}{1+knc(y_{\mathrm{loc}},y)}.
+\end{align*}
+
+\end_inset
+
+
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+Or should denominator be 1+kc, as there are nkc juvs, but for each of n
+ patches only kc compete???
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Fitness 
+\begin_inset Formula $W\left(\mathbf{x},\mathbf{y}\right)\equiv W\left(x_{\mathrm{foc}},x_{\mathrm{loc}},x,y_{\mathrm{foc}},y_{\mathrm{loc}},y\right)$
+\end_inset
+
+ is measured as the expected number of offspring produced by a focal parent
+ that establish themselves either in the local or any remote patch.
+ For the full scramble (FS) model, we have
+\begin_inset Formula 
+\begin{align}
+W_{\mathrm{FS}}\left(\mathbf{x},\mathbf{y}\right) & =\frac{s_{\mathrm{a}}\left(x_{\mathrm{foc}},y_{\mathrm{foc}},x_{\mathrm{loc}},y_{\mathrm{loc}}\right)}{ns_{\mathrm{a}}\left(x_{\mathrm{loc}},y_{\mathrm{loc}},x_{\mathrm{loc}},y_{\mathrm{loc}}\right)+knc(y_{\mathrm{loc}},y)}\nonumber \\
+ & +\frac{nk\left(1-d\right)f\left(y_{\mathrm{foc}},y_{\mathrm{loc}}\right)}{ns_{\mathrm{a}}\left(x_{\mathrm{loc}},y_{\mathrm{loc}},x_{\mathrm{loc}},y_{\mathrm{loc}}\right)+knc(y_{\mathrm{loc}},y)}\nonumber \\
+ & +\frac{nkdf\left(y_{\mathrm{foc}},y_{\mathrm{loc}}\right)}{ns_{\mathrm{a}}\left(x,y\right)+knc\left(y\right)}.\label{eq:WFS}
+\end{align}
+
+\end_inset
+
+where the first line reflects that the focal adult survives with probability
+ 
+\begin_inset Formula $s_{\mathrm{a}}\left(x_{\mathrm{foc}},y_{\mathrm{foc}},x_{\mathrm{loc}},y_{\mathrm{loc}}\right)$
+\end_inset
+
+ and subsequently successfully competes for a breeding position as a member
+ of 
+\begin_inset Formula $ns_{\mathrm{a}}\left(x_{\mathrm{loc}},y_{\mathrm{loc}},x_{\mathrm{loc}},y_{\mathrm{loc}}\right)$
+\end_inset
+
+ surviving adults and 
+\begin_inset Formula $nc\left(y_{\mathrm{loc}},y\right)$
+\end_inset
+
+ offspring, who have a relative strength 
+\begin_inset Formula $k$
+\end_inset
+
+.
+ The second line reflects the successful establishment of any of the 
+\begin_inset Formula $f(y_{\mathrm{foc}},y_{\mathrm{loc}})$
+\end_inset
+
+ focal's offspring who compete for 
+\begin_inset Formula $n$
+\end_inset
+
+ vacant breeding positions in the local patch, among a density of competitors
+ of 
+\begin_inset Formula $ns_{\mathrm{a}}\left(x_{\mathrm{loc}},y_{\mathrm{loc}},x_{\mathrm{loc}},y_{\mathrm{loc}}\right)+knc\left(y_{\mathrm{loc}},y\right)$
+\end_inset
+
+.
+ The final term reflects the successful establishment of any of the 
+\begin_inset Formula $f(y_{\mathrm{foc}},y_{\mathrm{loc}})$
+\end_inset
+
+ focal's offspring who compete for 
+\begin_inset Formula $n$
+\end_inset
+
+ vacant breeding positions in a remote patch.
+ 
+\end_layout
+
+\begin_layout Standard
+For the AD model, the fitness expression can be derived in a similar fashion:
+\begin_inset Formula 
+\begin{align}
+W_{\mathrm{AD}}\left(\mathbf{x},\mathbf{y}\right) & =s_{\mathrm{a}}\left(x_{\mathrm{foc}},y_{\mathrm{foc}},x_{\mathrm{loc}},y_{\mathrm{loc}}\right)\frac{1}{1+knc(y_{\mathrm{foc}},y_{\mathrm{loc}},y)}\nonumber \\
+ & +ns_{\mathrm{a}}\left(x_{\mathrm{loc}},y_{\mathrm{loc}}\right)\frac{k\left(1-d\right)f\left(y_{\mathrm{foc}},y_{\mathrm{loc}}\right)}{1+knc(y_{\mathrm{foc}},y_{\mathrm{loc}},y)}\nonumber \\
+ & +n\left(1-s_{\mathrm{a}}\left(x_{\mathrm{loc}},y_{\mathrm{loc}},x_{\mathrm{loc}},y_{\mathrm{loc}}\right)\right)\frac{\left(1-d\right)f\left(y_{\mathrm{foc}},y_{\mathrm{loc}}\right)}{nc(y_{\mathrm{foc}},y_{\mathrm{loc}},y)}\nonumber \\
+ & +dns_{\mathrm{a}}\left(x_{\mathrm{loc}},y_{\mathrm{loc}}\right)\frac{kf\left(y_{\mathrm{foc}},y_{\mathrm{loc}}\right)}{1+knc(y)}\nonumber \\
+ & +dn\left(1-s_{\mathrm{a}}\left(x,y\right)\right)\frac{f\left(y_{\mathrm{foc}},y_{\mathrm{loc}}\right)}{nc(y_{\mathrm{foc}},y_{\mathrm{loc}},y)}.\label{eq:WAD}
+\end{align}
+
+\end_inset
+
+Here, the first line reflects the focal's survival and subsequent successful
+ defence of its breeding position against any juvenile competitors.
+ The next line reflects successful competition of any of the focal's offspring
+ against local breeders who have survived.
+ The third line reflects successful competition of any of the focal's offspring
+ over any breeding positions that have been vacated due to the death of
+ any adult.
+ The fourth and fifth lines reflect successful competition of thefocal's
+ offspring in a remote patch in patches held by surviving adults or patches
+ vacated due to the death of adults respectively.
+\end_layout
+
+\begin_layout Section
+Selection gradients
+\end_layout
+
+\begin_layout Standard
+Using standard results 
+\begin_inset CommandInset citation
+LatexCommand citep
+before "e.g.,"
+key "Taylor1996,Lehmann2010"
+literal "false"
+
+\end_inset
+
+ on neighbour-modulated fitness (also often called direct fitness, 
+\begin_inset CommandInset citation
+LatexCommand citealt
+key "Taylor2007"
+literal "false"
+
+\end_inset
+
+), we then calculate selection gradients 
+\begin_inset Formula $S_{x}$
+\end_inset
+
+ and 
+\begin_inset Formula $S_{y}$
+\end_inset
+
+ on fecundity and survival help respectively.
+ For both models and any trait 
+\begin_inset Formula $z\in(x,y)$
+\end_inset
+
+ we have
+\begin_inset Formula 
+\begin{align*}
+S_{z} & =\frac{\partial W}{\partial z_{\mathrm{foc}}}+\frac{\partial W}{\partial z_{\mathrm{loc}}}r_{\mathrm{loc}}
+\end{align*}
+
+\end_inset
+
+where 
+\begin_inset Formula $r_{\mathrm{loc}}$
+\end_inset
+
+ is the coefficient of relatedness between the focal adult parent and a
+ parent on the local patch.
+ We assume that all traits are controlled by the parental generation (as
+ opposed to the offspring generation).
+\end_layout
+
+\begin_layout Section
+Relatedness
+\end_layout
+
+\begin_layout Standard
+Following 
+\begin_inset CommandInset citation
+LatexCommand citealt
+key "Taylor2000,Pen2000"
+literal "false"
+
+\end_inset
+
+, we then calculate the relatedness 
+\begin_inset Formula $r_{d}$
+\end_inset
+
+ between two distinct local breeders in the patch in a monomorphic 
+\begin_inset Formula $x,y$
+\end_inset
+
+ population.
+ 
+\end_layout
+
+\begin_layout Standard
+For the FS model, let 
+\begin_inset Formula $q_{\mathrm{a}}$
+\end_inset
+
+ denote the probability that an adult successfully competes for its breeding
+ position, or
+\begin_inset Formula 
+\begin{align*}
+q_{\mathrm{a}} & =\frac{s_{\mathrm{a}}\left(x,y\right)}{ns_{\mathrm{a}}\left(x,y\right)+knc(y)}.
+\end{align*}
+
+\end_inset
+
+Next, let 
+\begin_inset Formula $\ell$
+\end_inset
+
+ denote the conditional probality that a locally born juvenile successfully
+ competes for a breeding position, given that any adult is unable to
+\begin_inset Formula 
+\begin{align*}
+\ell & =\frac{\left(1-d\right)f\left(y\right)}{nc(y)}.
+\end{align*}
+
+\end_inset
+
+For the AD model, we have
+\begin_inset Formula 
+\begin{align*}
+q_{\mathrm{a}} & =s_{\mathrm{a}}\left(x,y\right)\frac{1}{1+knc(y)}\\
+\end{align*}
+
+\end_inset
+
+ For the FS model we then have
+\begin_inset Formula 
+\begin{align*}
+r_{d,\mathrm{FS},t+1} & =q_{\mathrm{a}}^{2}r_{d,\mathrm{FS},t}+2q_{\mathrm{a}}\left(1-q_{\mathrm{a}}\right)\ell\left[\frac{1}{n}+\frac{n-1}{n}r_{d,\mathrm{FS},t}\right]+\left(1-q_{\mathrm{a}}\right)^{2}\ell^{2}\left[\frac{1}{n}+\frac{n-1}{n}r_{d,\mathrm{FS},t}\right]
+\end{align*}
+
+\end_inset
+
+where 
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset bibtex
+LatexCommand bibtex
+btprint "btPrintCited"
+bibfiles "~/Projects/databases/transgenerational"
+options "bram"
+
+\end_inset
+
+
+\end_layout
+
+\end_body
+\end_document
