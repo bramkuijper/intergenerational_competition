@@ -200,14 +200,14 @@ At the start of each time step, the average breeder in the patch produces
 \end_layout
 
 \begin_layout Standard
-Following reproduction, a focal adult breeder survives with probability
+Following reproduction, a focal adult breeder survives with baseline probability
  
 \begin_inset Formula $s_{\mathrm{a}}(x_{\mathrm{foc}},y_{\mathrm{foc}},x_{\mathrm{loc}},y_{\mathrm{loc}})$
 \end_inset
 
 .
- Note that survival is both a function of fecundity help so that an average
- of 
+ Note that baseline survival is both a function of fecundity help so that
+ an average of 
 \begin_inset Formula $ns_{\mathrm{a}}\left(x_{\mathrm{loc}},y_{\mathrm{loc}}\right)$
 \end_inset
 
