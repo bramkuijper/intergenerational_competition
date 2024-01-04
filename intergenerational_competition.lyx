@@ -357,7 +357,7 @@ For the AD model, the fitness expression can be derived in a similar fashion:
 \begin{align}
 W_{\mathrm{AD}}\left(\mathbf{x},\mathbf{y}\right) & =s_{\mathrm{a}}\left(x_{\mathrm{foc}},y_{\mathrm{foc}},x_{\mathrm{loc}},y_{\mathrm{loc}}\right)\frac{1}{1+knc(y_{\mathrm{foc}},y_{\mathrm{loc}},y)}\nonumber \\
  & +ns_{\mathrm{a}}\left(x_{\mathrm{loc}},y_{\mathrm{loc}}\right)\frac{k\left(1-d\right)f\left(y_{\mathrm{foc}},y_{\mathrm{loc}}\right)}{1+knc(y_{\mathrm{foc}},y_{\mathrm{loc}},y)}\nonumber \\
- & +n\left(1-s_{\mathrm{a}}\left(x_{\mathrm{loc}},y_{\mathrm{loc}},x_{\mathrm{loc}},y_{\mathrm{loc}}\right)\right)\frac{\left(1-d\right)f\left(y_{\mathrm{foc}},y_{\mathrm{loc}}\right)}{nc(y_{\mathrm{foc}},y_{\mathrm{loc}},y)}\nonumber \\
+ & +n\left(1-s_{\mathrm{a}}\left(x_{\mathrm{loc}},y_{\mathrm{loc}},x_{\mathrm{loc}},y_{\mathrm{loc}}\right)\right)\frac{k\left(1-d\right)f\left(y_{\mathrm{foc}},y_{\mathrm{loc}}\right)}{nc(y_{\mathrm{foc}},y_{\mathrm{loc}},y)}\nonumber \\
  & +dns_{\mathrm{a}}\left(x_{\mathrm{loc}},y_{\mathrm{loc}}\right)\frac{kf\left(y_{\mathrm{foc}},y_{\mathrm{loc}}\right)}{1+knc(y)}\nonumber \\
  & +dn\left(1-s_{\mathrm{a}}\left(x,y\right)\right)\frac{f\left(y_{\mathrm{foc}},y_{\mathrm{loc}}\right)}{nc(y_{\mathrm{foc}},y_{\mathrm{loc}},y)}.\label{eq:WAD}
 \end{align}
