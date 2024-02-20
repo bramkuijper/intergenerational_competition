@@ -113,12 +113,14 @@ Margaret Bolton, Rufus A.
  Johnstone & Bram Kuijper
 \end_layout
 
-\begin_layout Section
-The model
+\begin_layout Standard
+Rufus can you have a glance whether this makes all sense? I am a bit worried
+ about the adult competition function - because only a small number of adults
+ are competing I wonder whether the competition function is hypergeometric?
 \end_layout
 
-\begin_layout Subsection
-Life cycle
+\begin_layout Section
+The model
 \end_layout
 
 \begin_layout Standard
@@ -167,58 +169,175 @@ literal "false"
  
 \end_layout
 
+\begin_layout Subsection
+Baseline survival and fecundity
+\end_layout
+
 \begin_layout Standard
-At the start of each time step, the average breeder in the patch produces
+At the start of each time step, a focal mutant breeder in the patch produces
  
-\begin_inset Formula $f\left(y_{\mathrm{loc}},y_{\mathrm{loc}}\right)$
+\begin_inset Formula $f\left(y_{\mathrm{foc}},y_{\mathrm{loc}},x_{\mathrm{foc}}\right)$
 \end_inset
 
- offspring, so that the total number of offspring produced in the local
- site per timestep is 
+ offspring.
+ Averaged across all local breeders including the focal, the total number
+ of offspring produced in the local site per timestep is then 
 \begin_inset Formula $nf\left(y_{\mathrm{loc}},y_{\mathrm{loc}}\right)$
 \end_inset
 
 .
- These offspring disperse with probabilitity 
-\begin_inset Formula $d$
+ In typical direct fitnesss analyses where helping affects fecundity 
+\begin_inset CommandInset citation
+LatexCommand citep
+before "e.g., eq. [7.10] in"
+key "Rousset2004"
+literal "false"
+
 \end_inset
 
- to a randomly chosen site or remain with probability 
-\begin_inset Formula $h\equiv1-d$
+, the focal mutant breeder's fecundity is often expressed as 
+\begin_inset Formula 
+\begin{align*}
+f\left(y_{\mathrm{foc}},y_{\mathrm{loc}}\right) & =1-c_{\mathrm{fec}}y_{\mathrm{foc}}+b_{\mathrm{fec}}y_{\mathrm{loc}}.
+\end{align*}
+
 \end_inset
 
- to compete for vacant breeding positions at the natal patch.
- Similarly, a patch stands to receive on average 
-\begin_inset Formula $ndf(y,y)$
-\end_inset
-
- immigrants from remote sites, so that a total of 
-\begin_inset Formula $nc(y_{\mathrm{loc}},y)=n(1-d)f\left(y_{\mathrm{loc}},y_{\mathrm{loc}}\right)+ndf(y,y)$
-\end_inset
-
- competes for local breeding positions.
-\end_layout
-
-\begin_layout Standard
-Following reproduction, a focal adult breeder survives with baseline probability
+The above equation reflects that individuals have a baseline fecundity of
  
-\begin_inset Formula $s_{\mathrm{a}}(x_{\mathrm{foc}},y_{\mathrm{foc}},x_{\mathrm{loc}},y_{\mathrm{loc}})$
+\begin_inset Formula $1$
+\end_inset
+
+ and that the focal mutant breeder incurs a cost 
+\begin_inset Formula $c_{\mathrm{fec}}y_{\mathrm{foc}}$
+\end_inset
+
+ by helping others dependent on its mutant helping trait 
+\begin_inset Formula $y_{\mathrm{foc}}$
 \end_inset
 
 .
- Note that baseline survival is both a function of fecundity help so that
- an average of 
-\begin_inset Formula $ns_{\mathrm{a}}\left(x_{\mathrm{loc}},y_{\mathrm{loc}}\right)$
+ Next, the focal mutant breeder also stands to gain from the help of others:
+ an act of altruism received from a single local individual (including the
+ focal breeder) results in a fecundity increment of 
+\begin_inset Formula $(b_{\mathrm{fec}}/n)y_{\mathrm{loc}}$
 \end_inset
 
- adults survive each time step, while 
-\begin_inset Formula $n\left(1-s_{\mathrm{a}}\left(x_{\mathrm{loc}}\right)\right)$
+, where 
+\begin_inset Formula $y_{\mathrm{loc}}$
 \end_inset
 
- breeding sites are now vacant.
- All individuals in the local patch then compete for local breeding positions.
- To accommodate various biological scenarios, we weigh the competitive strength
- of juveniles relative to adults by a coefficient 
+ reflects the local average level of fecundity help.
+ Hence, when summed over all local breeders, the total benefit received
+ is then 
+\begin_inset Formula $n(b_{\mathrm{fec}}/n)y_{\mathrm{loc}}=b_{\mathrm{fec}}y_{\mathrm{loc}}$
+\end_inset
+
+.
+ We modify the standard fecundity expression above to include scenarios
+ in which fecundity help can be paid in terms of survival costs by assuming
+ the following survival function
+\begin_inset Formula 
+\begin{align*}
+f\left(y_{\mathrm{foc}},y_{\mathrm{loc}},x_{\mathrm{foc}}\right) & =1-c_{y,\mathrm{fec}}y_{\mathrm{foc}}+b_{\mathrm{fec}}y_{\mathrm{loc}}-c_{x,\mathrm{fec}}x_{\mathrm{foc}},
+\end{align*}
+
+\end_inset
+
+where the cost coefficients 
+\begin_inset Formula $c_{y,\mathrm{fec}}$
+\end_inset
+
+ and 
+\begin_inset Formula $c_{x,\mathrm{fec}}$
+\end_inset
+
+ weigh how strongly the focal mutant's fecundity help 
+\begin_inset Formula $y_{\mathrm{foc}}$
+\end_inset
+
+ and survival help 
+\begin_inset Formula $x_{\mathrm{foc}}$
+\end_inset
+
+ reduce fecundity.
+\end_layout
+
+\begin_layout Standard
+We can express the baseline survival probability in a similar way: a focal
+ adult breeder survives with baseline probability 
+\begin_inset Formula $s_{\mathrm{a}}(x_{\mathrm{foc}},x_{\mathrm{loc}},y_{\mathrm{foc}})$
+\end_inset
+
+, given by 
+\begin_inset Formula 
+\begin{align*}
+s_{\mathrm{a}}\left(x_{\mathrm{foc}},x_{\mathrm{loc}},y_{\mathrm{foc}}\right) & =1-c_{x,\mathrm{surv}}x_{\mathrm{foc}}+b_{\mathrm{surv}}x_{\mathrm{loc}}-c_{y,\mathrm{surv}}y_{\mathrm{foc}},
+\end{align*}
+
+\end_inset
+
+where the cost coefficients 
+\begin_inset Formula $c_{x,\mathrm{surv}}$
+\end_inset
+
+ and 
+\begin_inset Formula $c_{y,\mathrm{surv}}$
+\end_inset
+
+ weigh how strongly the focal mutant's survival help 
+\begin_inset Formula $x_{\mathrm{foc}}$
+\end_inset
+
+ and fecundity help 
+\begin_inset Formula $y_{\mathrm{foc}}$
+\end_inset
+
+ reduce survival.
+ 
+\end_layout
+
+\begin_layout Subsection
+Competition over vacant sites
+\end_layout
+
+\begin_layout Standard
+At each time step an average of 
+\begin_inset Formula $ns_{\mathrm{a}}\left(x_{\mathrm{loc}},x_{\mathrm{loc}},y_{\mathrm{foc}}\right)$
+\end_inset
+
+ adults survive while 
+\begin_inset Formula $n\left(1-s_{\mathrm{a}}\left(x_{\mathrm{loc}},x_{\mathrm{loc}},y_{\mathrm{loc}}\right)\right)$
+\end_inset
+
+ breeding sites are vacated due to breeder mortality.
+ Let 
+\begin_inset Formula $u(y_{\mathrm{loc}},y)$
+\end_inset
+
+ reflect the total fecundity of a female breeding on a local patch at each
+ time step a total number of 
+\begin_inset Formula $n\times u(y_{\mathrm{loc}},y)$
+\end_inset
+
+ juveniles (compete for local breeding sites:
+\begin_inset Formula 
+\begin{align}
+n\times u\left(y_{\mathrm{loc}},y,x_{\mathrm{loc}},x\right) & =n\left(1-d\right)f\left(y_{\mathrm{loc}},y_{\mathrm{loc}},x_{\mathrm{loc}}\right)+ndf\left(y,y,x\right),\label{eq:ntimesu}
+\end{align}
+
+\end_inset
+
+where the first term reflects all philopatric offspring born in the local
+ site and the second term the number of offspring immigrating from remote
+ sites.
+\end_layout
+
+\begin_layout Standard
+We then implement competition between adults and juveniles over empty breeding
+ sites.
+ First, we weigh the competitive strength of juveniles relative to adults
+ by a coefficient 
 \begin_inset Formula $k>0$
 \end_inset
 
@@ -231,62 +350,78 @@ Following reproduction, a focal adult breeder survives with baseline probability
 \begin_inset Formula $k>1$
 \end_inset
 
- reflects a scenario in which juveniles are more likely than adults to achieve
- a vacant breeding position.
- Next, we consider that juveniles and adults can interact in two different
+ reflects a scenario in which juveniles are more likely than adults to win
+ competition over a vacant site.
+ 
+\end_layout
+
+\begin_layout Standard
+Next, we consider that juveniles and adults can interact in two different
  ways: in the first version of the model, the average number of 
-\begin_inset Formula $ns_{\mathrm{a}}\left(x_{\mathrm{loc}},y_{\mathrm{loc}}\right)$
+\begin_inset Formula $ns_{\mathrm{a}}\left(x_{\mathrm{loc}},x_{\mathrm{loc}},y_{\mathrm{loc}}\right)$
 \end_inset
 
  surviving adults and the 
 \begin_inset Formula $nc(y_{\mathrm{foc}},y_{\mathrm{loc}},y)$
 \end_inset
 
- juveniles compete for each of the 
+ juveniles compete for all of the 
 \begin_inset Formula $n$
 \end_inset
 
  breeding positions available, which we designate as `full scramble' (FS).
  This would reflect lifestyles in which all individuals, juveniles and adults
- alike, have to compete for any breeding positions anew each generation.
- In the second version of the model, we consider that only juveniles can
- remove adults from their breeding positions.
- If an adult is usurped they are unable to compete with other adults for
- their breeding positions.
+ alike, have to compete for any breeding positions anew each time step.
+ Consequently, the probability 
+\begin_inset Formula $p_{\mathrm{keep,FS}}$
+\end_inset
+
+ that any focal adult successfully manages to maintain its breeding position
+ in the full scramble model is given by
+\begin_inset Formula 
+\begin{align}
+p_{\mathrm{keep,FS}} & =\frac{s_{\mathrm{a}}\left(x_{\mathrm{foc}},x_{\mathrm{loc}},y_{\mathrm{foc}}\right)}{ns_{\mathrm{a}}\left(x_{\mathrm{loc}},x_{\mathrm{loc}},y_{\mathrm{loc}}\right)+nku\left(y_{\mathrm{loc}},y,x_{\mathrm{loc}},x\right)},\label{eq:pkeep:FS}
+\end{align}
+
+\end_inset
+
+In the second version of the model, we consider that adults can only defend
+ their current breeding position, but cannot compete for other breeding
+ positions in the local patch.
+ By contrast, juveniles can compete for all adult breeding positions.
  We designate this version of the model as the `adult defence' (AD) model.
  For example, this reflects lifestyles in which an adult that is successfully
  challenged by a juvenile is immediately expelled from the group and cannot
  compete for other vacancies.
- [we can scrap this if the difference is not so interesting].
-\end_layout
-
-\begin_layout Standard
-Consequently, the probability 
-\begin_inset Formula $p_{\mathrm{keep}}$
+ Consequently, the probability 
+\begin_inset Formula $p_{\mathrm{keep,AD}}$
 \end_inset
 
  that any focal adult successfully manages to maintain its breeding position
  is given by
 \begin_inset Formula 
-\begin{align*}
-p_{\mathrm{keep,FS}} & =\frac{s_{\mathrm{a}}\left(x_{\mathrm{foc}},y_{\mathrm{foc}}\right)}{ns_{\mathrm{a}}\left(x_{\mathrm{loc}},y_{\mathrm{loc}}\right)+knc(y_{\mathrm{loc}},y)}\\
-p_{\mathrm{keep,AD}} & =s_{\mathrm{a}}\left(x_{\mathrm{foc}},y_{\mathrm{foc}},x_{\mathrm{loc}},y_{\mathrm{loc}}\right)\frac{1}{1+knc(y_{\mathrm{loc}},y)}.
-\end{align*}
+\begin{align}
+p_{\mathrm{keep,AD}} & =s_{\mathrm{a}}\left(x_{\mathrm{foc}},x_{\mathrm{loc}},y_{\mathrm{foc}}\right)\frac{1}{1+nku\left(y_{\mathrm{loc}},y,x_{\mathrm{loc}},x\right)},\label{eq:pkeep:AD}
+\end{align}
 
 \end_inset
 
+as upon the focal adult's survival, the effective number of competitors
+ to the current vacant breeding position is given 
+\begin_inset Formula $1+nku\left(y_{\mathrm{loc}},y,x_{\mathrm{loc}},x\right)$
+\end_inset
 
-\begin_inset Note Note
-status open
+ which is the sum of the single surviving adult and the total number of
+ juveniles on the local site 
+\begin_inset Formula $nku\left(y_{\mathrm{loc}},y,x_{\mathrm{loc}},x\right)$
+\end_inset
 
-\begin_layout Plain Layout
-Or should denominator be 1+kc, as there are nkc juvs, but for each of n
- patches only kc compete???
+.
+ 
 \end_layout
 
-\end_inset
-
-
+\begin_layout Subsection
+Fitness
 \end_layout
 
 \begin_layout Standard
@@ -294,37 +429,32 @@ Fitness
 \begin_inset Formula $W\left(\mathbf{x},\mathbf{y}\right)\equiv W\left(x_{\mathrm{foc}},x_{\mathrm{loc}},x,y_{\mathrm{foc}},y_{\mathrm{loc}},y\right)$
 \end_inset
 
- is measured as the expected number of offspring produced by a focal parent
- that establish themselves either in the local or any remote patch.
+ is then measured as the expected number of offspring produced by a focal
+ mutant parent that establish themselves either in the local or any remote
+ patch.
  For the full scramble (FS) model, we have
 \begin_inset Formula 
 \begin{align}
-W_{\mathrm{FS}}\left(\mathbf{x},\mathbf{y}\right) & =\frac{s_{\mathrm{a}}\left(x_{\mathrm{foc}},y_{\mathrm{foc}},x_{\mathrm{loc}},y_{\mathrm{loc}}\right)}{ns_{\mathrm{a}}\left(x_{\mathrm{loc}},y_{\mathrm{loc}},x_{\mathrm{loc}},y_{\mathrm{loc}}\right)+knc(y_{\mathrm{loc}},y)}\nonumber \\
- & +\frac{nk\left(1-d\right)f\left(y_{\mathrm{foc}},y_{\mathrm{loc}}\right)}{ns_{\mathrm{a}}\left(x_{\mathrm{loc}},y_{\mathrm{loc}},x_{\mathrm{loc}},y_{\mathrm{loc}}\right)+knc(y_{\mathrm{loc}},y)}\nonumber \\
- & +\frac{nkdf\left(y_{\mathrm{foc}},y_{\mathrm{loc}}\right)}{ns_{\mathrm{a}}\left(x,y\right)+knc\left(y\right)}.\label{eq:WFS}
+W_{\mathrm{FS}}\left(\mathbf{x},\mathbf{y}\right) & =\frac{s_{\mathrm{a}}\left(x_{\mathrm{foc}},x_{\mathrm{loc}},y_{\mathrm{foc}}\right)}{ns_{\mathrm{a}}\left(x_{\mathrm{loc}},x_{\mathrm{loc}},y_{\mathrm{loc}}\right)+nku\left(y_{\mathrm{loc}},y,x_{\mathrm{loc}},x\right)}\nonumber \\
+ & +\frac{nk\left(1-d\right)f\left(y_{\mathrm{foc}},y_{\mathrm{loc}},x_{\mathrm{foc}}\right)}{ns_{\mathrm{a}}\left(x_{\mathrm{loc}},x_{\mathrm{loc}},y_{\mathrm{loc}}\right)+nku\left(y_{\mathrm{loc}},y,x_{\mathrm{loc}},x\right)}\nonumber \\
+ & +\frac{nkdf\left(y_{\mathrm{foc}},y_{\mathrm{loc}},x_{\mathrm{foc}}\right)}{ns_{\mathrm{a}}\left(x,x,y\right)+knu\left(y,y,x,x\right)}.\label{eq:WFS}
 \end{align}
 
 \end_inset
 
-where the first line reflects that the focal adult survives with probability
- 
-\begin_inset Formula $s_{\mathrm{a}}\left(x_{\mathrm{foc}},y_{\mathrm{foc}},x_{\mathrm{loc}},y_{\mathrm{loc}}\right)$
+where the first line reflects that the focal adult successfully competes
+ for a breeding position as in eq.
+ (
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:pkeep:FS"
+plural "false"
+caps "false"
+noprefix "false"
+
 \end_inset
 
- and subsequently successfully competes for a breeding position as a member
- of 
-\begin_inset Formula $ns_{\mathrm{a}}\left(x_{\mathrm{loc}},y_{\mathrm{loc}},x_{\mathrm{loc}},y_{\mathrm{loc}}\right)$
-\end_inset
-
- surviving adults and 
-\begin_inset Formula $nc\left(y_{\mathrm{loc}},y\right)$
-\end_inset
-
- offspring, who have a relative strength 
-\begin_inset Formula $k$
-\end_inset
-
-.
+).
  The second line reflects the successful establishment of any of the 
 \begin_inset Formula $f(y_{\mathrm{foc}},y_{\mathrm{loc}})$
 \end_inset
@@ -334,13 +464,17 @@ where the first line reflects that the focal adult survives with probability
 \end_inset
 
  vacant breeding positions in the local patch, among a density of competitors
- of 
-\begin_inset Formula $ns_{\mathrm{a}}\left(x_{\mathrm{loc}},y_{\mathrm{loc}},x_{\mathrm{loc}},y_{\mathrm{loc}}\right)+knc\left(y_{\mathrm{loc}},y\right)$
+ consisting of 
+\begin_inset Formula $ns_{\mathrm{a}}\left(x_{\mathrm{loc}},x_{\mathrm{loc}},y_{\mathrm{loc}}\right)$
 \end_inset
 
-.
+ surviving adults and 
+\begin_inset Formula $knu\left(y_{\mathrm{loc}},y,x_{\mathrm{loc}},x\right)$
+\end_inset
+
+ newborns.
  The final term reflects the successful establishment of any of the 
-\begin_inset Formula $f(y_{\mathrm{foc}},y_{\mathrm{loc}})$
+\begin_inset Formula $f\left(y_{\mathrm{foc}},y_{\mathrm{loc}},x_{\mathrm{foc}}\right)$
 \end_inset
 
  focal's offspring who compete for 
@@ -352,14 +486,25 @@ where the first line reflects that the focal adult survives with probability
 \end_layout
 
 \begin_layout Standard
-For the AD model, the fitness expression can be derived in a similar fashion:
+For the adult defense (AD) model, the fitness expression can be derived
+ in a similar fashion as equation (
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:WFS"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+)
 \begin_inset Formula 
 \begin{align}
-W_{\mathrm{AD}}\left(\mathbf{x},\mathbf{y}\right) & =s_{\mathrm{a}}\left(x_{\mathrm{foc}},y_{\mathrm{foc}},x_{\mathrm{loc}},y_{\mathrm{loc}}\right)\frac{1}{1+knc(y_{\mathrm{foc}},y_{\mathrm{loc}},y)}\nonumber \\
- & +ns_{\mathrm{a}}\left(x_{\mathrm{loc}},y_{\mathrm{loc}}\right)\frac{k\left(1-d\right)f\left(y_{\mathrm{foc}},y_{\mathrm{loc}}\right)}{1+knc(y_{\mathrm{foc}},y_{\mathrm{loc}},y)}\nonumber \\
- & +n\left(1-s_{\mathrm{a}}\left(x_{\mathrm{loc}},y_{\mathrm{loc}},x_{\mathrm{loc}},y_{\mathrm{loc}}\right)\right)\frac{k\left(1-d\right)f\left(y_{\mathrm{foc}},y_{\mathrm{loc}}\right)}{nc(y_{\mathrm{foc}},y_{\mathrm{loc}},y)}\nonumber \\
- & +dns_{\mathrm{a}}\left(x_{\mathrm{loc}},y_{\mathrm{loc}}\right)\frac{kf\left(y_{\mathrm{foc}},y_{\mathrm{loc}}\right)}{1+knc(y)}\nonumber \\
- & +dn\left(1-s_{\mathrm{a}}\left(x,y\right)\right)\frac{f\left(y_{\mathrm{foc}},y_{\mathrm{loc}}\right)}{nc(y_{\mathrm{foc}},y_{\mathrm{loc}},y)}.\label{eq:WAD}
+W_{\mathrm{AD}}\left(\mathbf{x},\mathbf{y}\right) & =s_{\mathrm{a}}\left(x_{\mathrm{foc}},x_{\mathrm{loc}},y_{\mathrm{foc}}\right)\frac{1}{1+nku\left(y_{\mathrm{loc}},y,x_{\mathrm{loc}},x\right)}\nonumber \\
+ & +ns_{\mathrm{a}}\left(x_{\mathrm{loc}},x_{\mathrm{loc}},y_{\mathrm{loc}}\right)\frac{k\left(1-d\right)f\left(y_{\mathrm{foc}},y_{\mathrm{loc}},x_{\mathrm{foc}}\right)}{1+nku\left(y_{\mathrm{loc}},y,x_{\mathrm{loc}},x\right)}\nonumber \\
+ & +n\left(1-s_{\mathrm{a}}\left(x_{\mathrm{loc}},x_{\mathrm{loc}},y_{\mathrm{loc}}\right)\right)\frac{\left(1-d\right)f\left(y_{\mathrm{foc}},y_{\mathrm{loc}},x_{\mathrm{foc}}\right)}{nu\left(y_{\mathrm{loc}},y,x_{\mathrm{loc}},x\right)}\nonumber \\
+ & +dns_{\mathrm{a}}\left(x,x,y\right)\frac{kf\left(y_{\mathrm{foc}},y_{\mathrm{loc}},x_{\mathrm{foc}}\right)}{1+nku\left(y,y,x,x\right)}\nonumber \\
+ & +dn\left(1-s_{\mathrm{a}}\left(x,x,y\right)\right)\frac{f\left(y_{\mathrm{foc}},y_{\mathrm{loc}},x_{\mathrm{foc}}\right)}{nu\left(y,y,x,x\right)}\label{eq:WAD}
 \end{align}
 
 \end_inset
@@ -443,7 +588,7 @@ literal "false"
 \end_inset
 
 , we then calculate the relatedness 
-\begin_inset Formula $r_{d}$
+\begin_inset Formula $r$
 \end_inset
 
  between two distinct local breeders in the patch in a monomorphic 
@@ -451,53 +596,233 @@ literal "false"
 \end_inset
 
  population.
+ We then have
+\begin_inset Formula 
+\begin{align*}
+r_{t+1} & =q_{\mathrm{a}}^{2}r_{t}+2q_{\mathrm{a}}\left(1-q_{\mathrm{a}}\right)\ell\left[\frac{1}{n}+\frac{n-1}{n}r_{t}\right]+\left(1-q_{\mathrm{a}}\right)^{2}\ell^{2}\left[\frac{1}{n}+\frac{n-1}{n}r_{t}\right],
+\end{align*}
+
+\end_inset
+
+where the first term on the right-hand side (rhs) reflects the case in which
+ two adult breeders are sampled who both successfully defended their breeding
+ sites with probability 
+\begin_inset Formula $q_{a}^{2}$
+\end_inset
+
+ (see eq.
+ [
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:qa"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+] below), so that their relatedness is given by 
+\begin_inset Formula $r_{t}$
+\end_inset
+
+.
+ The second term on the rhs reflects the case in which one breeder has survived
+ with probability 
+\begin_inset Formula $q_{a}$
+\end_inset
+
+ whereas the other breeder is newborn with probability 
+\begin_inset Formula $1-q_{a}$
+\end_inset
+
+ and is born on the local patch with probability 
+\begin_inset Formula $\ell$
+\end_inset
+
+ (see eq.
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:ell"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+) below.
+ In this case, the newborn breeder is a direct descendant of the surviving
+ breeder with probability 
+\begin_inset Formula $1/n$
+\end_inset
+
+, in which case the relatedness coefficient is simply 
+\begin_inset Formula $1$
+\end_inset
+
+.
+ Alternatively, the newborn breeder is a descendant of one of the 
+\begin_inset Formula $n-1$
+\end_inset
+
+ other local breeders, in which case relatedness is given by the value of
+ the relatedness coefficient 
+\begin_inset Formula $r_{t}$
+\end_inset
+
+ at time 
+\begin_inset Formula $t$
+\end_inset
+
+.
+ The third term on the rhs reflects the scenario in which both breeders
+ are newborn and local to the patch (with probability 
+\begin_inset Formula $(1-q_{a})^{2}\ell^{2}$
+\end_inset
+
+).
+ Again, with probability 
+\begin_inset Formula $1/n$
+\end_inset
+
+ the two locally born newborns have the same parent so that relatedness
+ is given by 
+\begin_inset Formula $1$
+\end_inset
+
+.
+ Alternatively, the second newborn is an offspring from one of the 
+\begin_inset Formula $n-1$
+\end_inset
+
+ other local breeders on the patch, in which case relatedness is given by
+ the value of the relatedness coefficient 
+\begin_inset Formula $r_{t}$
+\end_inset
+
+ at time 
+\begin_inset Formula $t$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+For the full scramble model, let 
+\begin_inset Formula $q_{\mathrm{a}}$
+\end_inset
+
+ denote the probability that an adult successfully competes for a breeding
+ position, or
+\begin_inset Formula 
+\begin{align}
+q_{\mathrm{a},\mathrm{FS}} & =\frac{ns_{\mathrm{a}}\left(x,x,y\right)}{ns_{\mathrm{a}}\left(x,x,y\right)+knu(y,y,x,x)},\label{eq:qa}
+\end{align}
+
+\end_inset
+
+where the denominator reflects the sum of the average number of surviving
+ adults in the local patch 
+\begin_inset Formula $ns_{a}(x,y)$
+\end_inset
+
+, while 
+\begin_inset Formula $knu(y,y,x,x)$
+\end_inset
+
+ (see eq.
+ [
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:ntimesu"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+]) reflects the average number of native and immigrant juveniles competing
+ with the adults over the breeding position.
+ The probability that an adult successfully competes for a breeding position
+ is then given by 
+\begin_inset Formula $ns_{a}(x,y)$
+\end_inset
+
+.
  
 \end_layout
 
 \begin_layout Standard
-For the FS model, let 
-\begin_inset Formula $q_{\mathrm{a}}$
-\end_inset
-
- denote the probability that an adult successfully competes for its breeding
- position, or
-\begin_inset Formula 
-\begin{align*}
-q_{\mathrm{a}} & =\frac{s_{\mathrm{a}}\left(x,y\right)}{ns_{\mathrm{a}}\left(x,y\right)+knc(y)}.
-\end{align*}
-
-\end_inset
-
 Next, let 
 \begin_inset Formula $\ell$
 \end_inset
 
- denote the conditional probality that a locally born juvenile successfully
- competes for a breeding position, given that any adult is unable to
+ denote the probality that a locally born juvenile successfully competes
+ for a breeding position, conditional upon a surviving adult not being able
+ to secure a breeding position: 
 \begin_inset Formula 
-\begin{align*}
-\ell & =\frac{\left(1-d\right)f\left(y\right)}{nc(y)}.
-\end{align*}
+\begin{align}
+\ell & =\frac{n\left(1-d\right)f\left(y,y,x\right)}{knu(y,y,x,x)},\label{eq:ell}
+\end{align}
 
 \end_inset
 
+where the denominator reflects that 
+\begin_inset Formula $nu(y,y,x,x)$
+\end_inset
+
+ philopatric and immigrant newborn individuals compete for the vacancy (see
+ eq.
+ [
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:ntimesu"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+]), as this probability is conditional upon adults having lost competition
+ for this site.
+ The numerator reflects the number of philopatric offspring born to the
+ local patch, with adults having fecundity 
+\begin_inset Formula $f(y,y,x)$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
 For the AD model, we have
 \begin_inset Formula 
 \begin{align*}
-q_{\mathrm{a}} & =s_{\mathrm{a}}\left(x,y\right)\frac{1}{1+knc(y)}\\
+q_{\mathrm{a},\mathrm{AD}} & =ns_{\mathrm{a}}\left(x,x,y\right)\frac{1}{1+knu(y,y,x,x)}
 \end{align*}
 
 \end_inset
 
- For the FS model we then have
-\begin_inset Formula 
-\begin{align*}
-r_{d,\mathrm{FS},t+1} & =q_{\mathrm{a}}^{2}r_{d,\mathrm{FS},t}+2q_{\mathrm{a}}\left(1-q_{\mathrm{a}}\right)\ell\left[\frac{1}{n}+\frac{n-1}{n}r_{d,\mathrm{FS},t}\right]+\left(1-q_{\mathrm{a}}\right)^{2}\ell^{2}\left[\frac{1}{n}+\frac{n-1}{n}r_{d,\mathrm{FS},t}\right]
-\end{align*}
+while 
+\begin_inset Formula $\ell$
+\end_inset
+
+ is the same for both the FS and AD models, hence we use eq.
+ (
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:ell"
+plural "false"
+caps "false"
+noprefix "false"
 
 \end_inset
 
-where 
+).
+\end_layout
+
+\begin_layout Section
+Results
 \end_layout
 
 \begin_layout Standard
